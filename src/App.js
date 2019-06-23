@@ -1,26 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Props from './props';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+
+  state = {
+    bg: 'red'
+  }
+
+  check=(clr)=>{
+    this.setState({bg : clr})
+  }
+ 
+  render() {
+    return (
+      <div className="App">
+     
+        <div style={{background:this.state.bg}}>
+        state
+        </div>
+
+        <button onClick={() => this.check('green')}> Green </button>
+          <button onClick={() => this.check('white')}> White </button>
+          <button onClick={() => this.check('red')}> red </button>
+          <button onClick={() => this.check('black')}> black </button>
+        <div>
+
+        <Props clr = {this.state.bg}/>
+        </div>
+      </div>
+    );
+  }
 }
-
 export default App;
